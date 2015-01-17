@@ -5,12 +5,18 @@ var watson = require('./watson');
 var dataFromTwitterUS;
 var dataFromTwitterPerState;
 
+var twitter_consumer_key    =  process.env.KEY;
+var twitter_consumer_secret =  process.env.SECRET;
+var twitter_access_token    =  process.env.TOKEN;
+var twitter_access_token_secret = process.env.TOKEN_SECRET;
+
+
 module.exports.twitterData = function(req, res) {
   var T = new Twit({
-          consumer_key:         process.env.KEY
-        , consumer_secret:      process.env.SECRET
-        , access_token:         process.env.TOKEN
-        , access_token_secret:  process.env.TOKEN_SECRET
+          consumer_key:         twitter_consumer_key
+        , consumer_secret:      twitter_consumer_secret
+        , access_token:         twitter_access_token
+        , access_token_secret:  twitter_access_token_secret
   });
   
   // create a profile request with the text and the htpps options and call it
